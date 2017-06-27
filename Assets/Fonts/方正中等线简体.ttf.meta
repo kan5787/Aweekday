@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 39d4b285bbeb0af4783d3954089235ff
+timeCreated: 1498530924
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FZZhongDengXian-Z07S
+  fontNames:
+  - FZZhongDengXian-Z07S
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

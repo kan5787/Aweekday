@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 8cec5f3154b313a489476a8ee89f6c0b
+timeCreated: 1498530924
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FZHei-B01S
+  fontNames:
+  - FZHei-B01S
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
