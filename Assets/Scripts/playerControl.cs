@@ -11,11 +11,13 @@ public class playerControl : MonoBehaviour {
     public Rigidbody2D herobody;
     private Transform mGroundCheck;
     private bool bGrounded = false;
+    private Animator anim;
 
     // Use this for initialization
     private void Awake()
     {
         mGroundCheck = transform.Find("GroundCheck");
+        anim = transform.root.gameObject.GetComponent<Animator>();
     }
 
     void Start () {
@@ -25,6 +27,8 @@ public class playerControl : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");//获取玩家水平输入
         herobody = gameObject.GetComponent<Rigidbody2D>();
+
+        anim.SetFloat("Speed", Mathf.Abs(h));//获得速度大小的绝对值
 
         if (h * herobody.velocity.x < maxSpeed)//小于最大速度时
             herobody.AddForce(Vector2.right * h * maxForce);
@@ -66,15 +70,8 @@ public class playerControl : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.W) && bGrounded)
         {
-            if (GetComponent<Collider2D>().tag == "spring")
-            {
-               herobody.AddForce(Vector2.up * JumpForce * 2);
-            }
-            else
-            {
-                herobody.AddForce(Vector2.up * JumpForce);
-            }
-            
+            anim.SetTrigger("Jump");
+            herobody.AddForce(Vector2.up * JumpForce);
         }
     }
 
