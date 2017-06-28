@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerControl : MonoBehaviour {
+    [HideInInspector]//隐藏下面的属性
+    public bool bFaceRight = true;
+    [HideInInspector]//隐藏下面的属性
+    public bool beJump = false;
+
     public float maxSpeed = 6;
     public float maxForce = 300;//设置添加的刚体力的大小
     public float JumpForce = 400;
-    [HideInInspector]//隐藏下面的属性
-    public bool bFaceRight = true;
+    public int moneyCount = 0;
+    
     public Rigidbody2D herobody;
     private Transform mGroundCheck;
     private bool bGrounded = false;
@@ -43,8 +48,12 @@ public class playerControl : MonoBehaviour {
             flip();
 
         //输入w键并且主角在地面上时跳起
-       Jump();
-             
+        if (beJump)
+        {
+            anim.SetTrigger("Jump");//判断为Jump时切换动画
+            herobody.AddForce(Vector2.up * JumpForce);
+        }
+
         Debug.Log(h);
     }
 
@@ -54,6 +63,8 @@ public class playerControl : MonoBehaviour {
         bGrounded = Physics2D.Linecast(transform.position,
             mGroundCheck.position, 1 << nlayer);
         Debug.Log("Layer" + nlayer);
+
+        beJump = Input.GetKeyDown(KeyCode.W) && bGrounded;
 
     }
 
@@ -65,14 +76,9 @@ public class playerControl : MonoBehaviour {
         transform.localScale = localscale;
     }
 
-    
-    void Jump()
+    public void mcount()
     {
-        if (Input.GetKeyDown(KeyCode.W) && bGrounded)
-        {
-            anim.SetTrigger("Jump");
-            herobody.AddForce(Vector2.up * JumpForce);
-        }
+        moneyCount++;
     }
 
 }

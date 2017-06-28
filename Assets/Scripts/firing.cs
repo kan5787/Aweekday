@@ -24,10 +24,11 @@ public class firing : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            anim.SetTrigger("Shoot");
+            anim.SetTrigger("biu");
             if (playertrl.bFaceRight)//如果角色向右
             {
-                Rigidbody2D sheel = Instantiate(bullet, transform.position,Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;//克隆子弹
+                Rigidbody2D sheel = Instantiate(bullet, transform.position,
+                    Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;//克隆子弹
                 sheel.velocity = new Vector2(speed, 0);//设置子弹速度
             }
             else
