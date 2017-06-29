@@ -78,7 +78,7 @@ public class playerControl : MonoBehaviour {
     }
 
     public void mcount()
-    {
+    {//增加钱币
         moneyCount++;
         string mC = moneyCount.ToString();
         money.Add(mC);

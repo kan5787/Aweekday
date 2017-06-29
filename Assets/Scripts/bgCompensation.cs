@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bgCompensation : MonoBehaviour {
-    public Transform[] BkPos;//建立一个数组,并将不同的图层对象拖入
+    public Transform[] BkPos;//建立一个图像数组
     public float Factor = 0.5f;//缩放变量,摄像机的运动和背景运动的比例关系
     public float FrameFactor = 0.5f;
     private Vector3 PreCamPos;

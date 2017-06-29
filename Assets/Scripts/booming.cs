@@ -8,7 +8,7 @@ public class booming : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Destroy(gameObject, 2);
+        //Destroy(gameObject, 2);
     }
 	
 	// Update is called once per frame
@@ -17,13 +17,13 @@ public class booming : MonoBehaviour {
 	}
      void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "sheep")//打到敌人
+        if (col.tag == "sheep")//打到羊
         {
             col.gameObject.GetComponent<sheep>().Hurt();//HP--
             OnExplode();
-            Destroy(gameObject);
+            Destroy(gameObject);//销毁子弹对象
         }
-        if (col.tag == "turtle")//打到敌人
+        if (col.tag == "turtle")//打到乌龟
         {
             col.gameObject.GetComponent<turtle>().Hurt();//HP--
             OnExplode();
@@ -33,7 +33,7 @@ public class booming : MonoBehaviour {
         if (col.tag != "Player")//防止打到自己
         {
             OnExplode();
-            Destroy(gameObject);//销毁子弹对象
+            Destroy(gameObject);
         }
     }
     void OnExplode()

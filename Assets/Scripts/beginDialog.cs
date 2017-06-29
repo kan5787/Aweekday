@@ -36,35 +36,38 @@ public class beginDialog : MonoBehaviour {
         majosmile.SetActive(false);
         mengzhong.SetActive(false);
 
-        XmlDocument xmlDocument = new XmlDocument();//新建一个XML“编辑器”
-        dialogues_list = new List<string>();//初始化存放对话的list
-        string data = Resources.Load("begindialog").ToString();//载入资源
-        xmlDocument.LoadXml(data);//载入这个xml
+        //新建一个XML“编辑器”并初始化存放对话的list
+        XmlDocument xmlDocument = new XmlDocument();
+        dialogues_list = new List<string>();
+
+        //载入资源
+        string data = Resources.Load("begindialog").ToString();
+        xmlDocument.LoadXml(data);
+
         XmlNodeList xmlNodeList = xmlDocument.SelectSingleNode("dialogues").ChildNodes;//选择<dialogues>为根结点并得到旗下所有子节点    
         foreach (XmlNode xmlNode in xmlNodeList)//遍历<dialogues>下的所有节点<dialogue>压入List  
         {
-            XmlElement xmlElement = (XmlElement)xmlNode;//对于任何一个元素，其实就是每一个<dialogue>    
+            XmlElement xmlElement = (XmlElement)xmlNode;  
             dialogues_list.Add(xmlElement.ChildNodes.Item(0).InnerText + "," + xmlElement.ChildNodes.Item(1).InnerText);
-            //将角色名和对话内容存入这个list，中间存个逗号一会儿容易分割  
+
         }
-        dialogue_count = dialogues_list.Count;//获取到底有多少条对话  
+        dialogue_count = dialogues_list.Count;
         dialogues_handle(0);//载入第一条对话的场景
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown(0))//如果点击了鼠标左键  
+        if (Input.GetMouseButtonDown(0))//按下鼠标左键
         {
             dialogue_index++;//对话跳到一下个  
-            if (dialogue_index < dialogue_count)//如果对话还没有完  
+            if (dialogue_index < dialogue_count) 
             {
                 detail.Clear();
                 roleName.Clear();
-                dialogues_handle(dialogue_index);//那就载入下一条对话  
+                dialogues_handle(dialogue_index);//载入下一条对话  
             }
             else
             { //对话完了  
-                //进入下一游戏场景之类的 
                 SceneManager.LoadScene("Level1");
             }
         }
@@ -73,12 +76,12 @@ public class beginDialog : MonoBehaviour {
     private void dialogues_handle(int dialogue_index)
     {
         //切割数组  
-        string[] role_detail_array = dialogues_list[dialogue_index].Split(',');//list中每一个对话格式就是“角色名,对话”  
+        string[] role_detail_array = dialogues_list[dialogue_index].Split(',');
         role = role_detail_array[0];
         role_detail = role_detail_array[1];
 
         switch (role)//根据角色名  
-        {   //显示当前说话的角色  
+        {
             case "xhordinaryM":
                 xhordinaryM.SetActive(true);
                 xhordinary.SetActive(false);
@@ -193,7 +196,7 @@ public class beginDialog : MonoBehaviour {
                 break;
 
         }
-        detail.Add(role_detail);//并加载当前的对话 
+        detail.Add(role_detail);//加载当前的对话 
     }
 }
 

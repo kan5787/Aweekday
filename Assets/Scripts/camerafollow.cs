@@ -27,8 +27,7 @@ public class camerafollow : MonoBehaviour {
         fnewX = Mathf.Clamp(fnewX, XY_Min.x, XY_Max.x);//fnewX的值在Min和Max之间,小于Min返回Min,大于Max返回Max
         fnewY = Mathf.Clamp(fnewY, XY_Min.y, XY_Max.y);
 
-        transform.position = new Vector3(fnewX,
-            fnewY, transform.position.z);//更新相机位置
+        transform.position = new Vector3(fnewX, fnewY, transform.position.z);//更新相机位置
 
     }
     private bool IsLargX()

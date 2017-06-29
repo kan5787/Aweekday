@@ -10,7 +10,6 @@ public class turtle : MonoBehaviour
     public float deathSpinMax = 100f;//旋转的最大角度
     public GameObject badd;
 
-    private Transform frontCheck;//frontCheck的位置
     private Rigidbody2D enemyBody;//enemy的rigidbody2d
     private void Awake()
     {
@@ -42,9 +41,8 @@ public class turtle : MonoBehaviour
 
         if (HP == 0)
         {
-            Instantiate(badd, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            
+            Instantiate(badd, transform.position, Quaternion.identity);//克隆血包
+            Destroy(gameObject);  
         }
 
     }

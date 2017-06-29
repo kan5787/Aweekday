@@ -5,9 +5,9 @@ using UnityEngine;
 public class playerhealth : MonoBehaviour {
     public float health = 100f;
     public float repeatDamagePeriod = 2f;
-
     public float hurtForce = 10f;
     public float damageAmount = 10f;
+    public UITweener passanim;
 
     private SpriteRenderer healthBar;//用于血条变色
     private float lastHitTime;
@@ -47,8 +47,7 @@ public class playerhealth : MonoBehaviour {
                 //无血
                 else
                 {
-                    print("die");
-                    //失败窗口（主界面，重新开始）
+                    passanim.PlayForward();
                 }
             }
         }

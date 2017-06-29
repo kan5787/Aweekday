@@ -9,7 +9,7 @@ public class sheep : MonoBehaviour {
     public float deathSpinMax = 100f;//旋转的最大角度
 
     private SpriteRenderer ren;//body的renderer
-    private Rigidbody2D enemyBody;//enemy的rigidbody2d
+    private Rigidbody2D enemyBody;//当前敌人的rigidbody2d
 
     // Use this for initialization
     private void Awake()
@@ -41,7 +41,6 @@ public class sheep : MonoBehaviour {
         ren.sprite = deadEnemy;//更换死亡enemy
         enemyBody.freezeRotation = false;//设置为可以旋转
         enemyBody.AddTorque(Random.Range(deathSpinMin, deathSpinMax));//随机旋转一个角度
-        //遍历碰撞体到数组并将所有的碰撞体都设为trigger,使enemy直接下落
         Collider2D[] cols = GetComponents<Collider2D>();
         foreach (Collider2D c in cols)
         {

@@ -235,7 +235,6 @@
     <Compile Include="Assets\Scripts\sheep.cs" />
     <Compile Include="Assets\Scripts\skipPlot.cs" />
     <Compile Include="Assets\Scripts\turtle.cs" />
-    <Compile Include="Assets\Scripts\updatemoney.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
