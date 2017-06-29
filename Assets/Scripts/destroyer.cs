@@ -15,7 +15,7 @@ public class destroyer : MonoBehaviour {
 	}
     void DestroyGameObject()
     {
-        Destroy(gameObject, 0.5f);//0.5秒后销毁物体
+        Destroy(gameObject);//0.5秒后销毁物体
     }
 
 }

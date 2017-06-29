@@ -219,8 +219,23 @@
     <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\beginDialog.cs" />
+    <Compile Include="Assets\Scripts\bgCompensation.cs" />
+    <Compile Include="Assets\Scripts\booming.cs" />
+    <Compile Include="Assets\Scripts\bottonClicked.cs" />
+    <Compile Include="Assets\Scripts\camerafollow.cs" />
+    <Compile Include="Assets\Scripts\destroyer.cs" />
+    <Compile Include="Assets\Scripts\firing.cs" />
+    <Compile Include="Assets\Scripts\followHeroine.cs" />
     <Compile Include="Assets\Scripts\gamesetting.cs" />
+    <Compile Include="Assets\Scripts\getBlood.cs" />
+    <Compile Include="Assets\Scripts\getMoney.cs" />
+    <Compile Include="Assets\Scripts\passing.cs" />
     <Compile Include="Assets\Scripts\playerControl.cs" />
+    <Compile Include="Assets\Scripts\playerhealth.cs" />
+    <Compile Include="Assets\Scripts\sheep.cs" />
+    <Compile Include="Assets\Scripts\skipPlot.cs" />
+    <Compile Include="Assets\Scripts\turtle.cs" />
+    <Compile Include="Assets\Scripts\updatemoney.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />

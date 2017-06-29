@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;//引用xml文件
+using UnityEngine.SceneManagement;
 
 public class beginDialog : MonoBehaviour {
 
@@ -61,7 +62,8 @@ public class beginDialog : MonoBehaviour {
             }
             else
             { //对话完了  
-                //进入下一游戏场景之类的  
+                //进入下一游戏场景之类的 
+                SceneManager.LoadScene("Level1");
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameGrade
 {
@@ -54,5 +55,10 @@ public class gamesetting : MonoBehaviour {
     public void OnCompleteSettingButtonClick()
     {
         optionPanelTween.PlayReverse();
+    }
+
+    public void OnStartButtonClick()
+    {
+        SceneManager.LoadScene("beginPlot");
     }
 }

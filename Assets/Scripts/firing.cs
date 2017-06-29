@@ -22,7 +22,7 @@ public class firing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("biu"))
         {
             anim.SetTrigger("biu");
             if (playertrl.bFaceRight)//如果角色向右

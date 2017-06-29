@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerhealth : MonoBehaviour {
-    public float health = 1000f;
+    public float health = 100f;
     public float repeatDamagePeriod = 2f;
 
     public float hurtForce = 10f;
@@ -13,6 +13,7 @@ public class playerhealth : MonoBehaviour {
     private float lastHitTime;
     private Vector3 healthScale;//用于血条长度
     private playerControl playerControl;//用于获取相关持续时间
+
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class playerhealth : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "animals")
+        if (col.gameObject.tag == "sheep"|| (col.gameObject.tag == "turtle"))
         {
             if (Time.time > lastHitTime + repeatDamagePeriod)
             {
@@ -63,6 +64,20 @@ public class playerhealth : MonoBehaviour {
         UpdateHealthBar();
     }
 
+    public void addhealth()
+    {
+        if (health < 100f)
+        {
+            health += 10f;
+            if (health > 100f)
+            {
+                health = 100f;
+            }
+        }
+        
+        UpdateHealthBar();
+    }
+
     public void UpdateHealthBar()
     {
         //设置材质颜色
@@ -71,5 +86,6 @@ public class playerhealth : MonoBehaviour {
         healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, healthScale.y, 1);
     }
 
+    
 
 }

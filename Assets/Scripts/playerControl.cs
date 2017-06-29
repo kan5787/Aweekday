@@ -12,8 +12,9 @@ public class playerControl : MonoBehaviour {
     public float maxForce = 300;//设置添加的刚体力的大小
     public float JumpForce = 400;
     public int moneyCount = 0;
-    
+    public UITextList money;
     public Rigidbody2D herobody;
+
     private Transform mGroundCheck;
     private bool bGrounded = false;
     private Animator anim;
@@ -26,8 +27,8 @@ public class playerControl : MonoBehaviour {
     }
 
     void Start () {
-		
-	}
+        money.Add("0");
+    }
     private void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");//获取玩家水平输入
@@ -64,7 +65,7 @@ public class playerControl : MonoBehaviour {
             mGroundCheck.position, 1 << nlayer);
         Debug.Log("Layer" + nlayer);
 
-        beJump = Input.GetKeyDown(KeyCode.W) && bGrounded;
+        beJump = Input.GetKeyDown(KeyCode.UpArrow) && bGrounded;
 
     }
 
@@ -79,6 +80,8 @@ public class playerControl : MonoBehaviour {
     public void mcount()
     {
         moneyCount++;
+        string mC = moneyCount.ToString();
+        money.Add(mC);
     }
 
 }
