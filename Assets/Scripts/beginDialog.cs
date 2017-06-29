@@ -14,6 +14,7 @@ public class beginDialog : MonoBehaviour {
     public GameObject majoblack;
     public GameObject majoordinary;
     public GameObject majosmile;
+    public GameObject mengzhong;
     public UITextList roleName;
     public UITextList detail;
     private List<string> dialogues_list;//存放对话的list
@@ -33,6 +34,7 @@ public class beginDialog : MonoBehaviour {
         majoblack.SetActive(false);
         majoordinary.SetActive(false);
         majosmile.SetActive(false);
+        mengzhong.SetActive(false);
 
         XmlDocument xmlDocument = new XmlDocument();//新建一个XML“编辑器”
         dialogues_list = new List<string>();//初始化存放对话的list
@@ -98,6 +100,19 @@ public class beginDialog : MonoBehaviour {
                 majoordinary.SetActive(false);
                 majosmile.SetActive(false);
                 roleName.Add("妈妈");
+                break;
+            case "pangbai":
+                xhordinaryM.SetActive(false);
+                xhordinary.SetActive(false);
+                xhsurprise.SetActive(false);
+                xhguilty.SetActive(false);
+                majoblackM.SetActive(false);
+                majoblack.SetActive(false);
+                majoordinary.SetActive(false);
+                majosmile.SetActive(false);
+                mengzhong.SetActive(true);
+
+                roleName.Add("  ");
                 break;
             case "xhordinary":
                 xhordinaryM.SetActive(false);
