@@ -12,6 +12,7 @@ public class playerhealth : MonoBehaviour {
     private SpriteRenderer healthBar;//用于血条变色
     private float lastHitTime;
     private Vector3 healthScale;//用于血条长度
+    private Transform healthPos;
     private playerControl playerControl;//用于获取相关持续时间
 
 
@@ -20,6 +21,7 @@ public class playerhealth : MonoBehaviour {
         playerControl = GetComponent<playerControl>();
         healthBar = GameObject.Find("blood").GetComponent<SpriteRenderer>();
         healthScale = healthBar.transform.localScale;
+        healthPos = GameObject.Find("blood").transform;
 
     }
     // Use this for initialization
@@ -29,8 +31,8 @@ public class playerhealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -38,7 +40,7 @@ public class playerhealth : MonoBehaviour {
         {
             if (Time.time > lastHitTime + repeatDamagePeriod)
             {
-                //有血,则见血并设置当前时间为最后一次受伤时间
+                //有血,则减血并设置当前时间为最后一次受伤时间
                 if (health > 0)
                 {
                     TakeDamage(col.transform);
@@ -65,6 +67,7 @@ public class playerhealth : MonoBehaviour {
 
     public void addhealth()
     {
+        float Prehealth = health;
         if (health < 100f)
         {
             health += 10f;
@@ -74,7 +77,7 @@ public class playerhealth : MonoBehaviour {
             }
         }
         
-        UpdateHealthBar();
+        UpdateAddHealthBar(Prehealth);
     }
 
     public void UpdateHealthBar()
@@ -83,8 +86,23 @@ public class playerhealth : MonoBehaviour {
         healthBar.material.color = Color.Lerp(Color.green, Color.red, (100 - health) * 0.01f);
         //设置血条比例
         healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, healthScale.y, 1);
+        healthPos.position = new Vector3(healthPos.position.x - (healthScale.x/15), healthPos.position.y, healthPos.position.z);
     }
 
-    
+    public void UpdateAddHealthBar(float Prehealth)
+    {
+        //设置材质颜色
+        healthBar.material.color = Color.Lerp(Color.green, Color.red, (100 - health) * 0.01f);
+        //设置血条比例
+        healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, healthScale.y, 1);
+        if (Prehealth==100)
+        {
+            healthPos.position = new Vector3(healthPos.position.x, healthPos.position.y, healthPos.position.z);
+        }
+        else
+        {
+            healthPos.position = new Vector3(healthPos.position.x + (healthScale.x / 15), healthPos.position.y, healthPos.position.z);
+        }
+    }
 
 }

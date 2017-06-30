@@ -8,8 +8,11 @@ public class bottonClicked : MonoBehaviour {
     public GameObject volume;
     private int setclickcount=0;
     private int volclickcount=0;
-	// Use this for initialization
-	void Start () {
+
+    public UISlider slider;
+    public AudioSource bgm;
+    // Use this for initialization
+    void Start () {
         setting.SetActive(false);
         volume.SetActive(false);
 	}
@@ -18,6 +21,11 @@ public class bottonClicked : MonoBehaviour {
 	void Update () {
 		
 	}
+    public void OnVolumeChanged()
+    {
+        bgm.volume = UIProgressBar.current.value;
+    }
+
     public void OnsettingClick()
     {
         setclickcount++;

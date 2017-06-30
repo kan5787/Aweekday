@@ -12,14 +12,15 @@ public enum GameGrade
 
 public class gamesetting : MonoBehaviour {
 
+    public UISlider slider;
     // Use this for initialization
-    public float volume = 1;
     public GameGrade grade = GameGrade.NORMAL;
 
     public TweenPosition optionPanelTween;
+    public AudioSource bgm;
     void Start () {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,8 +29,7 @@ public class gamesetting : MonoBehaviour {
 
     public void OnVolumeChanged()
     {
-        print("dd");
-        volume = UIProgressBar.current.value;//获取当前操作值
+        bgm.volume = UIProgressBar.current.value;
     }
     public void OnGameGradeChanged()
     {
